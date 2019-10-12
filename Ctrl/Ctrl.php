@@ -10,6 +10,9 @@
       case 'signIn':
         $ctrl .= sign_in($db);
         break;
+      case 'logout':
+        $ctrl .= logout();
+        break;
       case 'index':
         $ctrl .= HomeView();
         break;

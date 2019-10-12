@@ -26,12 +26,12 @@
     $htmlElement .= '</div>';
     $htmlElement .= '<div class="form-check">';
     $htmlElement .= '<label class="form-check-label">';
-    $htmlElement .= '<input type="checkbox" class="form-check-input">';
+    $htmlElement .= '<input type="checkbox" class="form-check-input mt-2">';
     $htmlElement .= 'By Clicking register you re agree to our policy & terms';
     $htmlElement .= '</label>';
     $htmlElement .= '</div>';
     $htmlElement .= '<div>';
-    $htmlElement .= '<input type="submit" class="btn btn-lg btn-primary" value="Register">';
+    $htmlElement .= '<input type="submit" class="btn btn-lg btn-primary mt-2" value="Register">';
     $htmlElement .= '</div>';
     $htmlElement .= '</fieldset>';
     $htmlElement .= '</form>';

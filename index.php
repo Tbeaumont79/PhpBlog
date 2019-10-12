@@ -9,6 +9,7 @@
   require_once 'Lib/debug.php';
   require_once 'Model/ConnectToBdd.php';
   require_once 'Model/ActionSignUpAndSignIn.php';
+  require_once 'Model/logout.php';
   require_once 'Ctrl/Ctrl.php';
 
   $content = Ctrl();

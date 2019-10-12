@@ -18,8 +18,12 @@
     foreach ($elements as $key => $value) {
       $htmlElement .= '<a class="p-2 text-dark" href="index.php?page='. $key .'">'. $value .'</a>';
     }
-    $htmlElement .= '<a class="btn btn-outline-primary" href="index.php?page=signUp">Sign up</a>';
-    $htmlElement .= '<a class="btn btn-outline-secondary ml-2" href="index.php?page=signIn">Sign in</a>';
+    if (!$_SESSION['username']) {
+      $htmlElement .= '<a class="btn btn-outline-primary" href="index.php?page=signUp">Sign up</a>';
+      $htmlElement .= '<a class="btn btn-outline-secondary ml-2" href="index.php?page=signIn">Sign in</a>';
+    } else {
+      $htmlElement .= '<a class="btn btn-outline-primary" href="index.php?page=logout">Logout</a>';
+    }
     $htmlElement .= '</div>';
     $htmlElement .= '</nav>';
     $htmlElement .= '</div>';
