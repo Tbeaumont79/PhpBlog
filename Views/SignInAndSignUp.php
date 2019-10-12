@@ -9,7 +9,7 @@
     $htmlElement .= '<hr>';
     $htmlElement .= '<div class="row text-center">';
     $htmlElement .= '<div class="col-md-5">';
-    $htmlElement .= '<form role="form" method="post" action="register.php">';
+    $htmlElement .= '<form role="form" method="post" action="index.php?page=signUp">';
     $htmlElement .= '<fieldset>';
     $htmlElement .= '<p class="text-uppercase pull-center"> SIGN UP.</p>';
     $htmlElement .= '<div class="form-group">';
@@ -39,11 +39,11 @@
     $htmlElement .=   '<div class="col-md-2">';
     $htmlElement .= '</div>';
     $htmlElement .= '<div class="col-md-5">';
-    $htmlElement .= '<form role="form">';
+    $htmlElement .= '<form role="form" method="post" action="index.php?page=signIn">';
     $htmlElement .= '<fieldset>';
     $htmlElement .=   '<p class="text-uppercase"> Login using your account: </p>';
     $htmlElement .= '<div class="form-group">';
-    $htmlElement .=   '<input type="email" name="username" id="username" class="form-control input-lg" placeholder="username">';
+    $htmlElement .=   '<input name="username" id="username" class="form-control input-lg" placeholder="username">';
     $htmlElement .= '</div>';
     $htmlElement .= '<div class="form-group">';
     $htmlElement .=   '<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">';

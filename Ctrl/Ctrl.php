@@ -2,12 +2,13 @@
 
   function Ctrl()
   {
+    $db = connectionToBdd();
     switch ($_GET['page']) {
-      case 'sign_in':
-        $ctrl .= signInAndSignUpForm();
+      case 'signUp':
+        $ctrl .= sign_up($db);
         break;
-      case 'sign_up':
-        $ctrl .= signInAndSignUpForm();
+      case 'signIn':
+        $ctrl .= sign_in($db);
         break;
       case 'index':
         $ctrl .= HomeView();
