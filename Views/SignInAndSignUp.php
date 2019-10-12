@@ -22,7 +22,7 @@
     $htmlElement .=   '<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">';
     $htmlElement .= '</div>';
     $htmlElement .= '<div class="form-group">';
-    $htmlElement .=   '<input type="password" name="password2" id="password2" class="form-control input-lg" placeholder="Password2">';
+    $htmlElement .=   '<input type="password" name="password2" id="password2" class="form-control input-lg" placeholder="Confirm your password">';
     $htmlElement .= '</div>';
     $htmlElement .= '<div class="form-check">';
     $htmlElement .= '<label class="form-check-label">';

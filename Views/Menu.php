@@ -4,24 +4,25 @@
   {
     return [
       'index' => 'Acceuil',
-      'sign_in' => 'Login',
-      'sign_up' => 'Register',
+      'about' => 'About',
+      'contact' => 'Contact',
     ];
   }
 
   function menuPage()
   {
     $elements = addElement();
-    $htmlElement .= '<nav class="navbar navbar-expand-lg navbar-light bg-light">';
-    $htmlElement .='<a class="navbar-brand" href="#">Blog</a>';
-    $htmlElement .= '<div class="navbar-nav mr-auto">';
-    $htmlElement .= '<ul class="navbar-nav">';
+    $htmlElement .= '<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">';
+    $htmlElement .= '<h5 class="my-0 mr-md-auto font-weight-normal">Blog</h5>';
+    $htmlElement .= '<nav class="my-2 my-md-0 mr-md-3">';
     foreach ($elements as $key => $value) {
-      $htmlElement .= '<li class="nav-item" ><a class="nav-link" href="index.php?page='. $key .'">'. $value .'</a></li>';
+      $htmlElement .= '<a class="p-2 text-dark" href="index.php?page='. $key .'">'. $value .'</a>';
     }
-    $htmlElement .= '</ul>';
+    $htmlElement .= '<a class="btn btn-outline-primary" href="index.php?page=sign_up">Sign up</a>';
+    $htmlElement .= '<a class="btn btn-outline-primary ml-2" href="index.php?page=sign_in">Sign in</a>';
     $htmlElement .= '</div>';
     $htmlElement .= '</nav>';
+    $htmlElement .= '</div>';
     return $htmlElement;
   }
 
