@@ -18,7 +18,7 @@
   }
 
   function getThePost($db) {
-    $res = mysqli_query($db, "SELECT * FROM blogpost ORDER BY date_post DESC ;");
+    $res = mysqli_query($db, "SELECT * FROM blogpost ORDER BY id_post DESC ;");
     while ($data = mysqli_fetch_array($res)) {
       if (isset($_POST['read_more'])) {
         $htmlData = displayArticle($_POST['title'], $_POST['post'], $_POST['date']);
