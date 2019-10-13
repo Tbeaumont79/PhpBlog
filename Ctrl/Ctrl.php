@@ -11,10 +11,16 @@
         $ctrl .= sign_in($db);
         break;
       case 'logout':
-        $ctrl .= logout();
+        $ctrl .= logout($db);
         break;
       case 'index':
         $ctrl .= HomeView();
+        break;
+      case 'article':
+        $ctrl .= getThePost($db);
+        break;
+      case 'admin':
+        $ctrl .= sendAPost($db);
         break;
       default:
         $ctrl .= HomeView();

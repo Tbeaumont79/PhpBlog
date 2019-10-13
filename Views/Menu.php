@@ -4,7 +4,7 @@
   {
     return [
       'index' => 'Acceuil',
-      'about' => 'About',
+      'article' => 'Article',
       'contact' => 'Contact',
     ];
   }
@@ -22,6 +22,9 @@
       $htmlElement .= '<a class="btn btn-outline-primary" href="index.php?page=signUp">Sign up</a>';
       $htmlElement .= '<a class="btn btn-outline-secondary ml-2" href="index.php?page=signIn">Sign in</a>';
     } else {
+      if ($_SESSION['username'] == 'admin') {
+        $htmlElement .= '<a class="btn btn-outline-primary mr-2" href="index.php?page=admin">Manage post</a>';
+      }
       $htmlElement .= '<a class="btn btn-outline-primary" href="index.php?page=logout">Logout</a>';
     }
     $htmlElement .= '</div>';

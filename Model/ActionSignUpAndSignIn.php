@@ -25,15 +25,16 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['pass
   }
   if (!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['password2']) && !empty($_POST['email'])) {
   if ($_POST['password'] === $_POST['password2']) {
+    $username = htmlspecialchars($_POST['username']);
+    $email = htmlspecialchars($_POST['email']);
     if (!isUsernameAlreadyUsed($db))
     {
     $hash = password_hash($_POST['password'], PASSWORD_BCRYPT);
     $stmt = mysqli_prepare($db, "INSERT INTO users(username, pass, email) VALUES (?, ?, ?)");
-    mysqli_stmt_bind_param($stmt, 'sss', $_POST['username'], $hash, $_POST['email']);
+    mysqli_stmt_bind_param($stmt, 'sss', $username, $hash, $email);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    $_SESSION['username'] = $_POST['username'];
-    $_SESSION['password'] = $_POST['password'];
+    $_SESSION['username'] = $username;
     $message = "bonjour ".$_SESSION['username'];
     return success($message).HomeView();
   } else {
