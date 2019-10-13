@@ -1,3 +1,4 @@
+
 <?php
 
   function bodyPage($content)
@@ -9,13 +10,4 @@
     return $htmlElement;
   }
 
-  function  footerPage($copyright = null)
-  {
-    $htmlElement .= '</body>';
-    $htmlElement .= '<footer class="fixed-bottom h-5 border-top">';
-    $htmlElement .= '<p class="text-center mt-2 pt-2">Made with love ♥ by thibault</p>';
-    $htmlElement .= '</footer>';
-    $htmlElement .= '</html>';
-    return $htmlElement;
-  }
 ?>

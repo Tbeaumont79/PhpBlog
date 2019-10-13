@@ -29,17 +29,17 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['pass
     $email = htmlspecialchars($_POST['email']);
     if (!isUsernameAlreadyUsed($db))
     {
-    $hash = password_hash($_POST['password'], PASSWORD_BCRYPT);
-    $stmt = mysqli_prepare($db, "INSERT INTO users(username, pass, email) VALUES (?, ?, ?)");
-    mysqli_stmt_bind_param($stmt, 'sss', $username, $hash, $email);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
-    $_SESSION['username'] = $username;
-    $message = "bonjour ".$_SESSION['username'];
-    return success($message).HomeView();
+      $hash = password_hash($_POST['password'], PASSWORD_BCRYPT);
+      $stmt = mysqli_prepare($db, "INSERT INTO users(username, pass, email) VALUES (?, ?, ?)");
+      mysqli_stmt_bind_param($stmt, 'sss', $username, $hash, $email);
+      mysqli_stmt_execute($stmt);
+      mysqli_stmt_close($stmt);
+      $_SESSION['username'] = $username;
+      $message = "bonjour ".$_SESSION['username'];
+      return success($message).HomeView();
   } else {
-    $message = "Username already exist ! ";
-    return error($message).signInAndSignUpForm();
+      $message = "Username already exist ! ";
+      return error($message).signInAndSignUpForm();
   }
   } else {
       $message = "password and confirm password doesn't match !";
