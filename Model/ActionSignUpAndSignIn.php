@@ -17,7 +17,6 @@ function  isUsernameAlreadyUsed($db)
 }
 
 function sign_up($db) {
-session_start();
 $message = '';
 if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['password2']) && isset($_POST['email'])) {
   if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
@@ -34,9 +33,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['pass
       mysqli_stmt_bind_param($stmt, 'sss', $username, $hash, $email);
       mysqli_stmt_execute($stmt);
       mysqli_stmt_close($stmt);
-      $_SESSION['username'] = $username;
-      $message = "bonjour ".$_SESSION['username'];
-      return success($message).HomeView();
+      return HomeView();
   } else {
       $message = "Username already exist ! ";
       return error($message).signInAndSignUpForm();
