@@ -1,13 +1,5 @@
 <?php
 
-function isUsernameAlreadyLogged($username) {
-  if (!isset($username)) {
-    return signInAndSignUpForm();
-  } else {
-    return homeView();
-  }
-}
-
 function  isUsernameAlreadyUsed($db)
 {
   $username = $_POST['username'];
@@ -49,9 +41,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['pass
       return error("all information are needed to register to the website !").signInAndSignUpForm();
   }
 }
-else {
-  return isUsernameAlreadyLogged($_SESSION['username']);
-}
+
 }
 
 function sign_in($db) {
@@ -74,9 +64,7 @@ function sign_in($db) {
     return error("Username and password need to fill so sign in !").signInAndSignUpForm();
   }
   }
-   else {
-    return isUsernameAlreadyLogged($_SESSION['username']);
-  }
+//ctr-z
 }
 
 ?>
