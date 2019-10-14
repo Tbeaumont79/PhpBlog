@@ -1,4 +1,5 @@
 <?php
+var_dump(session_start());
 
 function isUsernameAlreadyLogged($user) {
   if (!isset($user)) {
