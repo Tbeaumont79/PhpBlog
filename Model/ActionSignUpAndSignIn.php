@@ -17,7 +17,6 @@ function  isUsernameAlreadyUsed($db)
 }
 
 function sign_up($db) {
-session_start();
 $message = '';
 if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['password2']) && isset($_POST['email'])) {
   if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
@@ -34,6 +33,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['pass
       mysqli_stmt_bind_param($stmt, 'sss', $username, $hash, $email);
       mysqli_stmt_execute($stmt);
       mysqli_stmt_close($stmt);
+      session_start();
       $_SESSION['username'] = $username;
       $message = "bonjour ".$_SESSION['username'];
       return success($message).HomeView();
@@ -55,7 +55,6 @@ else {
 }
 
 function sign_in($db) {
-  session_start();
   if(isset($_POST['username']) && isset($_POST['password'])) {
     if (!empty($_POST['username']) && !empty($_POST['password'])) {
       $username = $_POST['username'];
@@ -64,6 +63,7 @@ function sign_in($db) {
       $passwd = $_POST['password'];
       if (password_verify($passwd, $verif[0]))
       {
+        session_start();
         $_SESSION['username'] = $username;
         $msg = "Ravi de vous revoir ! ".$_SESSION['username'];
         return success($msg).homeView();
