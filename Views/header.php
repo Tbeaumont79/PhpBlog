@@ -1,8 +1,7 @@
 <?php
-
+debug(session_start());
   function headerPage()
   {
-    debug(session_start());
     debug($_SESSION);
     $htmlElement .= '<html>';
     $htmlElement .= '<head>';
