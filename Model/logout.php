@@ -7,7 +7,7 @@
     }
     session_unset($_SESSION['username']);
     session_destroy();
-    return $msg.homeView();
+    return $msg.signInAndSignUpForm();
   }
 
 ?>
