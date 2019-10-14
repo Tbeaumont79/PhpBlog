@@ -3,6 +3,7 @@
   function headerPage()
   {
     session_start();
+    echo session_id();
     $htmlElement .= '<html>';
     $htmlElement .= '<head>';
     $htmlElement .=   '<meta charset="utf-8">';
