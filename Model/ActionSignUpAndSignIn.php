@@ -53,7 +53,6 @@ else {
 }
 
 function sign_in($db) {
-  session_start();
   if(isset($_POST['username']) && isset($_POST['password'])) {
     if (!empty($_POST['username']) && !empty($_POST['password'])) {
       $user = $_POST['username'];
