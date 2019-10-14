@@ -1,8 +1,7 @@
 <?php
-debug(session_start());
+
   function headerPage()
   {
-    debug($_SESSION);
     $htmlElement .= '<html>';
     $htmlElement .= '<head>';
     $htmlElement .=   '<meta charset="utf-8">';
