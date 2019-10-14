@@ -1,5 +1,4 @@
 <?php
-var_dump(session_start());
 
 function isUsernameAlreadyLogged($user) {
   if (!isset($user)) {
@@ -54,6 +53,7 @@ else {
 }
 
 function sign_in($db) {
+  var_dump(session_start());
   if(isset($_POST['username']) && isset($_POST['password'])) {
     if (!empty($_POST['username']) && !empty($_POST['password'])) {
       $user = $_POST['username'];

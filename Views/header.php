@@ -2,6 +2,7 @@
 
   function headerPage()
   {
+    var_dump(session_start());
     $htmlElement .= '<html>';
     $htmlElement .= '<head>';
     $htmlElement .=   '<meta charset="utf-8">';
