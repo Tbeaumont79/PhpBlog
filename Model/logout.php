@@ -6,9 +6,7 @@
     }
     session_unset($_SESSION);
     session_destroy();
-    header('Location: index.php?action="index"');
-    exit();
-    return $msg.signInAndSignUpForm();
+    return $msg.homeView();
   }
 
 ?>
