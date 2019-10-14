@@ -1,6 +1,6 @@
 <?php
 
-function isUsernameAlreadyLogged($username = null) {
+function isUsernameAlreadyLogged($username) {
   if (!isset($username)) {
     return signInAndSignUpForm();
   } else {
@@ -32,7 +32,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['pass
       $stmt = mysqli_prepare($db, "INSERT INTO users(username, pass, email) VALUES (?, ?, ?)");
       mysqli_stmt_bind_param($stmt, 'sss', $username, $hash, $email);
       mysqli_stmt_execute($stmt);
-      mysqli_stmt_close($stmt);
+      mysqli_stmt_close($stmit);
       session_start();
       $_SESSION['username'] = $username;
       $message = "bonjour ".$_SESSION['username'];
@@ -50,7 +50,8 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['pass
   }
 }
 else {
-  return isUsernameAlreadyLogged();
+  session_start();
+  return isUsernameAlreadyLogged($_SESSION['username']);
 }
 }
 
@@ -61,9 +62,9 @@ function sign_in($db) {
       $res = mysqli_query($db,"SELECT pass FROM users WHERE username='$username';");
       $verif = mysqli_fetch_row($res);
       $passwd = $_POST['password'];
+      session_start();
       if (password_verify($passwd, $verif[0]))
       {
-        session_start();
         $_SESSION['username'] = $username;
         $msg = "Ravi de vous revoir ! ".$_SESSION['username'];
         return success($msg).homeView();
@@ -75,7 +76,8 @@ function sign_in($db) {
   }
   }
    else {
-    return isUsernameAlreadyLogged();
+    session_start();
+    return isUsernameAlreadyLogged($_SESSION['username']);
   }
 }
 
