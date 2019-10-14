@@ -12,7 +12,7 @@
     $htmlElement .= '<script src="https://kit.fontawesome.com/c1bbb0d38e.js" crossorigin="anonymous"></script>';
     $htmlElement .=   '<title>blog</title>';
     $htmlElement .= '</head>';
-    $htmlElement .= '<body>';
+    $htmlElement .= '<body class="bg-primary">';
     return $htmlElement;
   }
 
