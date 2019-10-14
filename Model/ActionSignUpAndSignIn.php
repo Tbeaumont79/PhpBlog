@@ -1,7 +1,7 @@
 <?php
 
-function isUsernameAlreadyLogged($username) {
-  if (!isset($username)) {
+function isUsernameAlreadyLogged($user) {
+  if (!isset($user)) {
     return signInAndSignUpForm();
   } else {
     return homeView();
@@ -56,13 +56,13 @@ function sign_in($db) {
   session_start();
   if(isset($_POST['username']) && isset($_POST['password'])) {
     if (!empty($_POST['username']) && !empty($_POST['password'])) {
-      $username = $_POST['username'];
-      $res = mysqli_query($db,"SELECT pass FROM users WHERE username='$username';");
+      $user = $_POST['username'];
+      $res = mysqli_query($db,"SELECT pass FROM users WHERE username='$user';");
       $verif = mysqli_fetch_row($res);
       $passwd = $_POST['password'];
       if (password_verify($passwd, $verif[0]))
       {
-        $_SESSION['username'] = $username;
+        $_SESSION['username'] = $user;
         $msg = "Ravi de vous revoir ! ".$_SESSION['username'];
         return success($msg).homeView();
       } else {
