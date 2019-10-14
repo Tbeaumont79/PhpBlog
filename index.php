@@ -1,5 +1,5 @@
 <?php
-debug(session_start());
+var_dump(session_start());
 
   require_once 'Views/header.php';
   require_once 'Views/Menu.php';
