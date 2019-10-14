@@ -1,4 +1,5 @@
 <?php
+  session_start();
   require_once 'Views/header.php';
   require_once 'Views/Menu.php';
   require_once 'Views/body.php';
