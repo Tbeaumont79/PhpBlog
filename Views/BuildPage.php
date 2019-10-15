@@ -1,6 +1,5 @@
 <?php
-  function buildPage($content)
-  {
+  function buildPage($content) {
     $htmlElement .= headerPage();
     $htmlElement .= menuPage();
     $htmlElement .= bodyPage($content);

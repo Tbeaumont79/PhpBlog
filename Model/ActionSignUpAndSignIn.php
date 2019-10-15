@@ -48,12 +48,12 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['pass
   }
 }
 else {
-  return isUsernameAlreadyLogged($_SESSION['username']);
+  return isUsernameAlreadyLogged($_SESSION['name']);
 }
 }
 
 function sign_in($db) {
-  var_dump(session_start());
+session_start();
   if(isset($_POST['username']) && isset($_POST['password'])) {
     if (!empty($_POST['username']) && !empty($_POST['password'])) {
       $user = $_POST['username'];
@@ -62,8 +62,8 @@ function sign_in($db) {
       $passwd = $_POST['password'];
       if (password_verify($passwd, $verif[0]))
       {
-        $_SESSION['username'] = $user;
-        $msg = "Ravi de vous revoir ! ".$_SESSION['username'];
+        $_SESSION['name'] = $user;
+        $msg = "Ravi de vous revoir ! ".$_SESSION['name'];
         return success($msg).homeView();
       } else {
         return error("invalid username or password !").signInAndSignUpForm();
@@ -73,7 +73,7 @@ function sign_in($db) {
   }
   }
    else {
-    return isUsernameAlreadyLogged($_SESSION['username']);
+    return isUsernameAlreadyLogged($_SESSION['name']);
   }
 }
 

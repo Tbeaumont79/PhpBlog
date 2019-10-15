@@ -1,7 +1,7 @@
 <?php
 
   function sendAPost($db) {
-    if ($_SESSION['username'] != 'admin') {
+    if ($_SESSION['name'] != 'admin') {
       return error("you are not allowed to access this page ! ").signInAndSignUpForm();
     }
     if (isset($_POST['postTitle']) && isset($_POST['postBody'])) {
