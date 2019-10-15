@@ -27,15 +27,15 @@ function displayTheRightButton()
 function menuPage()
 {
 	$elements = addElement();
-	$htmlElement .= '<div class="border-bottom navbar-static-top">';
-	$htmlElement .= '<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white box-shadow mt-2">';
-	$htmlElement .= '<h4 class="my-0 mr-md-auto font-weight-normal ml-md-5" font-family:Roboto Mono;>Thibault Beaumont</h4>';
-	$htmlElement .= '<nav class="my-2 my-md-0 mr-md-3 nav nav-items">';
+	$htmlElement .= '<div class="border-bottom">';
+	$htmlElement .= '<div class="p-3 px-md-4 mb-3 bg-white box-shadow mt-2 d-flex ">';
+	$htmlElement .= '<h4 class= "my-0 mr-md-auto font-weight-normal ml-md-5" font-family:Roboto Mono;>Thibault Beaumont</h4>';
+	$htmlElement .= '<nav class=" my-2 my-md-0 mr-md-3 nav nav-items">';
 	foreach ($elements as $key => $value) {
 		if ($_GET['page'] == $key) {
-			$htmlElement .= '<a class="p-2 text-info nav-link active mr-5" href="index.php?page='. $key .'" style="font-family:Roboto;">'. $value .'</a>';
+			$htmlElement .= '<a class="p-2 mr-5 text-info nav-link active" href="index.php?page='. $key .'" style="font-family:Roboto;">'. $value .'</a>';
 		} else {
-			$htmlElement .= '<a class="p-2 text-dark mr-5" href="index.php?page='. $key .'"style="font-family:Roboto;">'. $value .'</a>';
+			$htmlElement .= '<a class="p-2 mr-5 text-dark nav-link" href="index.php?page='. $key .'"style="font-family:Roboto;">'. $value .'</a>';
 		}
 	}
 	$htmlElement .= displayTheRightButton();
