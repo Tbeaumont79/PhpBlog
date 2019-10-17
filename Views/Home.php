@@ -1,6 +1,6 @@
 <?php
 
-  function HomeView() {
+  function contactView() {
     $htmlElement .= '<div class=" mt-5 d-flex flex-column justify-content-center">';
     $htmlElement .= '<div class="row mr-0">';
     $htmlElement .= '<div class="col-4"></div>';

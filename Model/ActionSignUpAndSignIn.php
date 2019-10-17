@@ -1,10 +1,10 @@
 <?php
 
-function isUsernameAlreadyLogged($user) {
+function isUsernameAlreadyLogged($user, $db) {
   if (!isset($user)) {
     return signInAndSignUpForm();
   } else {
-    return homeView();
+    return getThePost($db, true);
   }
 }
 
@@ -34,7 +34,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['pass
       mysqli_stmt_execute($stmt);
       mysqli_stmt_close($stmit);
 
-      return success($message).HomeView();
+      return success($message).getThePost($db, true);
   } else {
       $message = "Username already exist ! ";
       return error($message).signInAndSignUpForm();
@@ -48,7 +48,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['pass
   }
 }
 else {
-  return isUsernameAlreadyLogged($_SESSION['name']);
+  return isUsernameAlreadyLogged($_SESSION['name'], $db);
 }
 }
 
@@ -64,7 +64,7 @@ session_start();
       {
         $_SESSION['name'] = $user;
         $msg = "Ravi de vous revoir ! ".$_SESSION['name'];
-        return success($msg).homeView();
+        return success($msg).getThePost($db, true);
       } else {
         return error("invalid username or password !").signInAndSignUpForm();
       }
@@ -73,7 +73,7 @@ session_start();
   }
   }
    else {
-    return isUsernameAlreadyLogged($_SESSION['name']);
+    return isUsernameAlreadyLogged($_SESSION['name'], $db);
   }
 }
 

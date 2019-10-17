@@ -11,14 +11,17 @@
       mysqli_stmt_bind_param($stmt, 'sss', $postTitle, $postBody, date("F j, Y, g:i a"));
       mysqli_stmt_execute($stmt);
       mysqli_stmt_close($stmt);
-      return success("you post is online ! ").homeView();
+      return success("you post is online ! ");
     }
     return compose();
   }
 
-  function getThePost($db) {
+  function getThePost($db, $usersignInUp = null) {
     $res = mysqli_query($db, "SELECT * FROM blogpost ORDER BY id_post DESC ;");
     while ($data = mysqli_fetch_array($res)) {
+      if ($_GET['page'] == 'index' || $usersignInUp == true) {
+        return (displayArticle($data[1], $data[2], $data[3]));
+      }
       if (isset($_POST['read_more'])) {
         $htmlData = displayArticle($_POST['title'], $_POST['post'], $_POST['date']);
       } else {

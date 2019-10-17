@@ -14,7 +14,7 @@ function Ctrl()
 	    $ctrl .= logout($db);
 	    break;
 	case 'index':
-	    $ctrl .= HomeView();
+	    $ctrl .= getThePost($db);
 	    break;
 	case 'article':
 	    $ctrl .= getThePost($db);
@@ -22,8 +22,10 @@ function Ctrl()
 	case 'admin':
 	    $ctrl .= sendAPost($db);
 	    break;
+  case 'contact':
+      $ctrl .= contactView();
 	default:
-	    $ctrl .= HomeView();
+	    $ctrl .= getThePost($db);
 	    break;
     }
     return $ctrl;
