@@ -1,6 +1,6 @@
 <?php
 function displayArticle($title, $post, $date) {
-  $htmlElement .='   <div class="container w-75 m-auto">';
+  $htmlElement .='   <div class="container w-75 m-auto pt-5">';
   $htmlElement .='   <div class="card mb-4">';
   //$htmlElement .='<img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">';
   $htmlElement .=' <div class="card-body">';
