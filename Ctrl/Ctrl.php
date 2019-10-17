@@ -24,6 +24,7 @@ function Ctrl()
 	    break;
   case 'contact':
       $ctrl .= contactView();
+      break;
 	default:
 	    $ctrl .= getThePost($db);
 	    break;
