@@ -19,6 +19,9 @@ function Ctrl()
 	case 'article':
 	    $ctrl .= getThePost($db);
 	    break;
+  case 'deleteArticle':
+      $ctrl .= getThePost($db);
+      break;
 	case 'admin':
 	    $ctrl .= sendAPost($db);
 	    break;
