@@ -4,16 +4,20 @@
       return error("you are not allowed to access this page ! ").signInAndSignUpForm();
     }
   }
-
-  function deleteArticle($db, $title) {
-    if (isset($title)) {
-      var_dump($title);
-      mysqli_query($db, "DELETE * FROM blogpost WHERE title_post='$title'");
+// le manage article redirige en fonction de si tu veux afficher les articles ou les deletes 
+// pour l'edit recuperer les donnees les modifiers puis les deletes
+  function deleteArticle($db) {
+    $res = mysqli_query($db, "SELECT * FROM blogpost ORDER BY id_post DESC ;");
+    while ($data = mysqli_fetch_array($res)) {
+      if (isset($_POST['delete']) && isset($_POST['title'])) {
+        if ($data[1] == $_POST['title']) {
+          $title = $_POST['title'];
+          $res = mysqli_query($db, "DELETE * FROM blogpost WHERE title_post='$title'");
+        }
+      }
+      $htmlData .= createAllPost($data[1], $data[2], $data[3]);
     }
-    else {
-      debug($title);
-    }
-    return (manageThePost($db, true));
+    return articleview($htmlData);
   }
 
   function sendAPost($db) {
