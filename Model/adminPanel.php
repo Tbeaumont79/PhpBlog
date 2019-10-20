@@ -5,10 +5,13 @@
     }
   }
 
-  function deleteArticle($db, $title, $post) {
-    if (isset($title) && isset($post)) {
-      die('test');
+  function deleteArticle($db, $title) {
+    if (isset($title)) {
+      var_dump($title);
       mysqli_query($db, "DELETE * FROM blogpost WHERE title_post='$title'");
+    }
+    else {
+      debug($title);
     }
     return (getThePost($db, true));
   }
@@ -32,8 +35,6 @@
     while ($data = mysqli_fetch_array($res)) {
       if ($_GET['page'] == 'index' || $usersignInUp == true) {
         return (displayArticle($data[1], $data[2], $data[3]));
-      } else if ($_GET['page'] == 'deleteArticle' && $_POST['delete']) {
-        return (deleteArticle($db, $_POST['title'], $_POST['post']));
       }
       if (isset($_POST['read_more'])) {
         $htmlData = displayArticle($_POST['title'], $_POST['post'], $_POST['date']);

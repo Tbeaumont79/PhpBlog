@@ -14,7 +14,6 @@
   require_once 'Views/adminPanel.php';
   require_once 'Views/article.php';
   require_once 'Ctrl/Ctrl.php';
-  require_once 'Ctrl/CtrlArticle.php';
 
   $content = Ctrl();
   echo buildPage($content);
