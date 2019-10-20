@@ -13,7 +13,7 @@
     else {
       debug($title);
     }
-    return (getThePost($db, true));
+    return (manageThePost($db, true));
   }
 
   function sendAPost($db) {
@@ -30,7 +30,7 @@
     return compose();
   }
 
-  function getThePost($db, $usersignInUp = null) {
+  function manageThePost($db, $usersignInUp = null) {
     $res = mysqli_query($db, "SELECT * FROM blogpost ORDER BY id_post DESC ;");
     while ($data = mysqli_fetch_array($res)) {
       if ($_GET['page'] == 'index' || $usersignInUp == true) {

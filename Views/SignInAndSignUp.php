@@ -1,12 +1,7 @@
 <?php
-  function signInAndSignUpForm()
+
+  function  register()
   {
-    $htmlElement .= '<div class="container-fluid">';
-    $htmlElement .= '<div class="container">';
-    $htmlElement .= '<h2 class="text-center" id="title">Register or Login</h2>';
-    $htmlElement .= '<p class="text-center">';
-    $htmlElement .= '</p>';
-    $htmlElement .= '<hr>';
     $htmlElement .= '<div class="row text-center">';
     $htmlElement .= '<div class="col-md-5">';
     $htmlElement .= '<form role="form" method="post" action="index.php?page=signUp">';
@@ -38,6 +33,11 @@
     $htmlElement .= '</div>';
     $htmlElement .=   '<div class="col-md-2">';
     $htmlElement .= '</div>';
+    return ($htmlElement);
+  }
+
+  function  login()
+  {
     $htmlElement .= '<div class="col-md-5">';
     $htmlElement .= '<form role="form" method="post" action="index.php?page=signIn">';
     $htmlElement .= '<fieldset>';
@@ -55,6 +55,19 @@
     $htmlElement .= '</form>';
     $htmlElement .= '</div>';
     $htmlElement .= '</div>';
+    return ($htmlElement);
+  }
+
+  function  signInAndSignUpForm()
+  {
+    $htmlElement .= '<div class="container-fluid">';
+    $htmlElement .= '<div class="container">';
+    $htmlElement .= '<h2 class="text-center" id="title">Register or Login</h2>';
+    $htmlElement .= '<p class="text-center">';
+    $htmlElement .= '</p>';
+    $htmlElement .= '<hr>';
+    $htmlElement .= register();
+    $htmlElement .= login();
     $htmlElement .= '</div>';
     $htmlElement .= '</div>';
     return $htmlElement;

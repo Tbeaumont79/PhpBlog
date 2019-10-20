@@ -4,7 +4,7 @@ function isUsernameAlreadyLogged($user, $db) {
   if (!isset($user)) {
     return signInAndSignUpForm();
   } else {
-    return getThePost($db, true);
+    return manageThePost($db, true);
   }
 }
 
@@ -34,7 +34,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['pass
       mysqli_stmt_execute($stmt);
       mysqli_stmt_close($stmit);
 
-      return success($message).getThePost($db, true);
+      return success($message).manageThePost($db, true);
   } else {
       $message = "Username already exist ! ";
       return error($message).signInAndSignUpForm();
@@ -64,7 +64,7 @@ session_start();
       {
         $_SESSION['name'] = $user;
         $msg = "Ravi de vous revoir ! ".$_SESSION['name'];
-        return success($msg).getThePost($db, true);
+        return success($msg).manageThePost($db, true);
       } else {
         return error("invalid username or password !").signInAndSignUpForm();
       }
